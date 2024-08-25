@@ -1,19 +1,20 @@
 # xflag
 
-There's a bit more details in the [Allowing flags anywhere on the
-CLI](https://mfridman.com/blog/2024/allowing-flags-anywhere-on-the-cli/) post.
+The `flag` package in Go's standard library takes an opinionated approach to parsing flags. It stops
+parsing when it encounters a positional argument.
 
-To summarize, the stdlib `flag` package has an opinionated approach to parsing flags. It enforces
-that flags must be defined before any positional arguments.
+However, most users nowadays expect — and want — to define flags anywhere in the CLI.
 
-Unfortunately, nowadays, it's common for users to expect (read want) to be able to define flags
-after positional arguments.
+For more details, check out my blog post:
 
-So, this package exposes a single function called `ParseToEnd` which takes a normal `flag.FlagSet`
-and `os.Args[1:]` and attempts to parse all the flags, even if they're defined after the positional
-arguments.
+[Allowing flags anywhere on the
+CLI](https://mfridman.com/blog/2024/allowing-flags-anywhere-on-the-cli/)
 
-The code here is really intended to be copy/pasted instead of imported. It's more of a
-proof-of-concept for how I _wish_ the stdlib `flag` package worked.
+This package introduces a single function, `ParseToEnd`, which takes a standard `flag.FlagSet` and
+`os.Args[1:]`. It attempts to parse all flags, even when they're mixed with or placed after
+positional arguments.
+
+The code is meant to be copy-pasted rather than imported. It's essentially a proof-of-concept for
+how I'd like the `flag` package to work.
 
 If it looks like a flag, parses like a flag, and quacks like a flag, then it probably is a flag.
