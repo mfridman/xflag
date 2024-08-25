@@ -3,7 +3,7 @@
 There's a bit more details in the [Allowing flags anywhere on the
 CLI](https://mfridman.com/blog/2024/allowing-flags-anywhere-on-the-cli/) post.
 
-TL;DR - there's one annoyance with the stdlib `flag` package, flags must be defined before any
+To summarize, the stdlib `flag` package enforces that flags must be defined before any
 positional arguments.
 
 So, this package exposes a single function called `ParseToEnd` which takes a normal `flag.FlagSet`
