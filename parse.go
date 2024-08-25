@@ -26,7 +26,8 @@ func ParseToEnd(f *flag.FlagSet, arguments []string) error {
 	remainingArgs := f.Args()
 	for i := 0; i < len(remainingArgs); i++ {
 		arg := remainingArgs[i]
-		// If the arg looks like a duck, and quacks like a duck, it's a duck. A flag is a duck.
+		// If the arg looks like a flag, parses like a flag, and quacks like a flag, then it
+		// probably is a flag.
 		//
 		// Note, there's an edge cases here which we EXPLICITLY do not handle, and quite honestly
 		// 99.999% of the time you wouldn't build a CLI with this behavior.
